@@ -1,0 +1,28 @@
+version: '2.0'
+services:
+  app:
+    image: openjdk:8-jdk
+    volumes:
+      - ${PROJECTS_DIRECTORY}:/app
+      - ./.gradle-cache:/root/.gradle
+    working_dir: /app
+    command: ./gradlew run -Dexec.args=/app/config.json
+
+  persister:
+    image: openjdk:8-jdk
+    volumes:
+      - ${PROJECTS_DIRECTORY}/persister:/persister
+    working_dir: /persister
+    command: ./gradlew bootRun
+    ports:
+      - 8080:8080
+
+  mongo:
+    image: mongo:3.2
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodata:

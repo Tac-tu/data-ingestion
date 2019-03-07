@@ -1,0 +1,44 @@
+import static java.lang.System.getProperty
+
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+def slf4jVersion = '1.7.21'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(project(":persister"))
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile(
+            [group: 'com.google.code.gson', name: 'gson', version: '2.8.0'],
+            [group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion],
+            [group: 'org.slf4j', name: 'slf4j-log4j12', version: slf4jVersion],
+    )
+}
+
+run {
+    def arguments = getProperty("exec.args")
+    if(arguments != null) {
+        //noinspection GroovyAssignabilityCheck
+        args getProperty("exec.args").split()
+    } else {
+        //noinspection GroovyAssignabilityCheck
+        args new String[0]
+    }
+}
+
+tasks.withType(JavaExec) {
+    if (getProperty('DEBUG', 'false') == 'true') {
+        jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9099'
+    }
+}
+
+mainClassName = "Launcher"

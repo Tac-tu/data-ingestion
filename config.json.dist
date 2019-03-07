@@ -1,0 +1,11 @@
+{
+    "mongo": {
+        "host": "mongo",
+        "port": 27017,
+        "database": "test",
+        "user": "",
+        "password": ""
+    },
+    "chromeDriverPath": "/path/to/chromedriver",
+    "log": "ERROR"
+}
