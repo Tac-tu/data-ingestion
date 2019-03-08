@@ -1,0 +1,9 @@
+version: '2.0'
+services:
+  app:
+    image: openjdk:8-jdk
+    volumes:
+      - ${PROJECTS_DIRECTORY}:/app
+      - ./.gradle-cache:/root/.gradle
+    working_dir: /app
+    command: ./gradlew run -Dexec.args="--source bookatable"

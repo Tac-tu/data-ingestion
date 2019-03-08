@@ -4,4 +4,4 @@ spring.data.mongodb.port=27017
 spring.data.mongodb.username=diuser
 spring.data.mongodb.password=dipass
 spring.data.mongodb.database=data-ingestion
-spring.data.mongodb.uri=mongodb://user:pass@host:port/database
+#spring.data.mongodb.uri=mongodb://diuser:dipass@mongo:27017/data-ingestion
