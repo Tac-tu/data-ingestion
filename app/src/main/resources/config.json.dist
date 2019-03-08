@@ -1,0 +1,5 @@
+{
+    "chromeDriverPath": "/path/to/chromedriver",
+    "crawledPagesLimit": 100,
+    "log": "ERROR"
+}
