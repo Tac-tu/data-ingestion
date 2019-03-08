@@ -1,4 +1,4 @@
-package application.entity;
+package data_ingestion.persister.entity;
 
 import org.springframework.data.annotation.Id;
 

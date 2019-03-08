@@ -1,4 +1,4 @@
-package provider;
+package data_ingestion.crawler.provider;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

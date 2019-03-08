@@ -1,6 +1,6 @@
-package provider;
+package data_ingestion.crawler.provider;
 
-import handler.ChildComponentsHandler;
+import data_ingestion.crawler.handler.ChildComponentsHandler;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.openqa.selenium.WebDriver;

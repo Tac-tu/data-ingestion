@@ -1,4 +1,4 @@
-package handler;
+package data_ingestion.crawler.handler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -2,8 +2,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import provider.AbstractWebDriverProvider;
-import provider.ChromeDriverProvider;
+import data_ingestion.crawler.provider.AbstractWebDriverProvider;
+import data_ingestion.crawler.provider.ChromeDriverProvider;
 
 import static org.junit.Assert.assertTrue;
 
