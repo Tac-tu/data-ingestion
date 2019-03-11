@@ -2,7 +2,6 @@ import static java.lang.System.getProperty
 
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
@@ -14,7 +13,10 @@ repositories {
 }
 
 dependencies {
+    compile(project(":shared"))
     compile(project(':crawler'))
+    compile(project(':extractor'))
+    compile(project(':matcher'))
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile(

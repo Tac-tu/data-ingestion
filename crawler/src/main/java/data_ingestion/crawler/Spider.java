@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import data_ingestion.crawler.provider.PageContentProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +17,8 @@ import java.util.Map;
 public class Spider {
     private static final Logger log = LoggerFactory.getLogger(Spider.class);
 
-    public Map<String, Document> crawl(WebDriver driver, String startUrl, int maxPages) {
-        String urlRegex = "^https?://" + startUrl.substring(startUrl.indexOf("://") + "://".length()) + ".*$";
+    public Map<String, Document> crawl(WebDriver driver, String startUrl, int maxPages) throws URISyntaxException {
+        String urlRegex = "^https?://[^\\.]*\\.?" + getDomainName(startUrl) + ".*$";
         ArrayList<String> pagesToVisit = new ArrayList<>();
         Map<String,Document> pagesVisited = new HashMap<>();
 
@@ -30,7 +33,7 @@ public class Spider {
             addPagesToVisit(elements, urlRegex, pagesToVisit);
 
             pagesVisited.put(currentUrl, content);
-            log.info("Crawled page: " + currentUrl);
+            System.out.println("Crawled page: " + currentUrl);
 
             if (pagesVisited.size() >= maxPages) {
                 break;
@@ -59,6 +62,12 @@ public class Spider {
                 pagesToVisit.add(absUrl);
             }
         }
+    }
+
+    private static String getDomainName(String url) throws URISyntaxException {
+        URI uri = new URI(url);
+        String domain = uri.getHost();
+        return domain.startsWith("www.") ? domain.substring(4) : domain;
     }
 
 }

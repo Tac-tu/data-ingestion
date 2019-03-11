@@ -1,5 +1,11 @@
 {
     "chromeDriverPath": "/path/to/chromedriver",
     "crawledPagesLimit": 100,
+    "persisterUrl": "http://localhost:8080/",
+    "hitta": {
+        "callerId": "caller",
+        "apiUrl": "https://api.hitta.se/publicsearch/v1/companies/",
+        "apiKey": "secret"
+    }
     "log": "ERROR"
 }

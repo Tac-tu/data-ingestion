@@ -1,9 +1,9 @@
 ##### Initial
 ```
-cp persister/src/main/resources/application.properties.dist persister/src/main/resources/application.properties
-cp app/src/main/resources/config.json.dist app/src/main/resources/config.json
-cd PROJECT_DIR/.docker
-cp .env.dist .env
+ $ cp persister/src/main/resources/application.properties.dist persister/src/main/resources/application.properties
+ $ cp app/src/main/resources/config.json.dist app/src/main/resources/config.json
+ $ cd PROJECT_DIR/.docker
+ $ cp .env.dist .env
 ```
 
 ##### Edit
